@@ -1,6 +1,7 @@
 ## Programming Assignment 1
 ## Exploratory Data Analysis
 ## Hector Obregon Roa
+## plot1
 
 ## We use chron to manage times
 library(chron)

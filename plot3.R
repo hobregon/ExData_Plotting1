@@ -1,7 +1,7 @@
 ## Programming Assignment 1
 ## Exploratory Data Analysis
 ## Hector Obregon Roa
-## plot2
+## plot3
 
 ## We use chron to manage times
 library(chron)
@@ -27,13 +27,19 @@ myTwoDayData$DateTime <- as.POSIXct(paste(myTwoDayData$Date,
                                     format="%Y-%m-%d %H:%M:%S")
 
 ## Plot to screen first (to verify everything is OK)
-plot(myTwoDayData$DateTime,myTwoDayData$Global_active_power, 
-     main="", ylab="Global Active Power (kilowatts)", xlab="",
-     type="l")
+plot(myTwoDayData$DateTime,myTwoDayData$Sub_metering_1, main="", 
+     ylab="Energy sub metering", xlab="", type="l")
+lines(myTwoDayData$DateTime,myTwoDayData$Sub_metering_2, col="red" )
+lines(myTwoDayData$DateTime,myTwoDayData$Sub_metering_3, col="blue" )
+legend("topright", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), 
+       lty=1, col=c("black","red","blue"))
 
 ## Open PNG device and plot to the requested file
-png("plot2.png")
-plot(myTwoDayData$DateTime,myTwoDayData$Global_active_power, 
-     main="", ylab="Global Active Power (kilowatts)", xlab="",
-     type="l")
+png("plot3.png")
+plot(myTwoDayData$DateTime,myTwoDayData$Sub_metering_1, main="", 
+     ylab="Energy sub metering", xlab="", type="l")
+lines(myTwoDayData$DateTime,myTwoDayData$Sub_metering_2, col="red" )
+lines(myTwoDayData$DateTime,myTwoDayData$Sub_metering_3, col="blue" )
+legend("topright", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), 
+       lty=1, col=c("black","red","blue"))
 dev.off()
